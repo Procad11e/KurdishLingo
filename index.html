@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurmanci Lernen</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="app-container">
+        
+        <!-- DASHBOARD (Level-Map) -->
+        <section id="screen-dashboard" class="screen active">
+            <header class="top-bar">
+                <h1>Hînkirina Kurmancî</h1>
+                <div class="stats"><span id="total-stars">0</span> ⭐</div>
+            </header>
+            <div id="path-container">
+                <!-- Wird per JS generiert -->
+            </div>
+        </section>
+
+        <!-- INFO SCREEN (Theorie & Aussprache) -->
+        <section id="screen-info" class="screen">
+            <header class="top-bar">
+                <button class="btn-icon" onclick="App.showDashboard()">✖</button>
+                <h2>Lektion Info</h2>
+            </header>
+            <div class="content-box">
+                <h3 id="info-title"></h3>
+                <p id="info-grammar"></p>
+                <div id="info-pronunciation" class="pronunciation-grid"></div>
+            </div>
+            <div class="bottom-bar">
+                <button class="btn-primary" id="btn-start-quiz">Quiz Starten</button>
+            </div>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="screen-quiz" class="screen">
+            <div class="progress-bar-container">
+                <button class="btn-icon" onclick="App.showDashboard()">✖</button>
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+            </div>
+            <div class="quiz-content" id="quiz-content">
+                <h2 id="question-text">Frage?</h2>
+                <div id="options-container">
+                    <!-- Buttons oder Input-Feld -->
+                </div>
+            </div>
+            <div id="feedback-bar" class="feedback-bar hidden">
+                <div id="feedback-msg">Richtig!</div>
+                <button class="btn-primary" id="btn-next-question">Weiter</button>
+            </div>
+        </section>
+
+        <!-- RESULT SCREEN -->
+        <section id="screen-result" class="screen">
+            <div class="result-box">
+                <h2>Lektion Abgeschlossen!</h2>
+                <div class="stars-display" id="result-stars">⭐⭐⭐</div>
+                <p id="result-msg">Perfekt! Du hast keine Fehler gemacht.</p>
+                <button class="btn-primary" onclick="App.showDashboard()">Zurück zum Menü</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Daten einbinden (Modular erweiterbar) -->
+    <script src="a1-data.js"></script>
+    <!-- Hauptlogik einbinden -->
+    <script src="app.js"></script>
+</body>
+</html>
